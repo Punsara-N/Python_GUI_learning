@@ -320,10 +320,10 @@ class OOP():
         self.tabControl.select(1)
         
 
-if __name__ == '__main__' # This runs only when this module is run only
+if __name__ == '__main__': # This runs only when this module is run only
     oop = OOP()
     runT = Thread(target=oop.methodInAThread)
     oop.win.mainloop()
-
+    oop.log.writeToLog('I am writting to the log!')
 
 ### Continue from page 220
