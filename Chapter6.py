@@ -319,9 +319,11 @@ class OOP():
         #self.nameEntered.focus() # Place cursor into name Entry
         self.tabControl.select(1)
         
-oop = OOP()
-runT = Thread(target=oop.methodInAThread)
-oop.win.mainloop()
 
+if __name__ == '__main__': # This runs only when this module is run only
+    oop = OOP()
+    runT = Thread(target=oop.methodInAThread)
+    oop.win.mainloop()
+    oop.log.writeToLog('I am writting to the log!')
 
 ### Continue from page 220

@@ -1,6 +1,7 @@
 import os
 import io
 from currentTime import currentTime
+from currentTime import currentTimeText
 import time
 
 class LogLevel:
@@ -15,7 +16,7 @@ class Logger:
 
     def __init__(self, fullTestName, loglevel=LogLevel.DEBUG):
         testName = os.path.splitext(os.path.basename(fullTestName))[0]
-        logName = testName + '.log'
+        logName = testName + '_' + currentTimeText() + '.log'
         
         logsFolder = 'logs'
         if not os.path.exists(logsFolder):
@@ -43,3 +44,7 @@ class Logger:
                 msg = msg[1:]
             logFile.write(unicode(currentTime())+ '\t\t' + msg + '\n')
         logFile.close()
+        
+    def setLoggingLevel(self, level):
+        '''change logging level in the middle of a test.'''
+        self.loggingLevel = level
