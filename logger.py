@@ -1,6 +1,7 @@
 import os
 import io
 from currentTime import currentTime
+from currentTime import currentTimeText
 import time
 
 class LogLevel:
@@ -15,7 +16,7 @@ class Logger:
 
     def __init__(self, fullTestName, loglevel=LogLevel.DEBUG):
         testName = os.path.splitext(os.path.basename(fullTestName))[0]
-        logName = testName + '.log'
+        logName = testName + '_' + currentTimeText() + '.log'
         
         logsFolder = 'logs'
         if not os.path.exists(logsFolder):
